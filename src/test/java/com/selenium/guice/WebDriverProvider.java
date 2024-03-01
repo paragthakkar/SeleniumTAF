@@ -1,6 +1,7 @@
 package com.selenium.guice;
 
 import com.google.inject.Provider;
+import com.selenium.utils.WebActions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +17,8 @@ import java.util.Arrays;
 
 public class WebDriverProvider implements Provider<WebDriver> {
 
-    private static final String BROWSER_CONF = "browser";
+    private static final String BROWSER_CONF = WebActions.getProperty("browser");
+    public static final String HEADLESS_CONF = WebActions.getProperty("headless");
     WebDriver webDriver;
 
     @Override
@@ -58,9 +60,11 @@ public class WebDriverProvider implements Provider<WebDriver> {
                 "--ignore-certificate-errors",
                 "--force-device-scale-factor=1",
                 "--disable-notifications",
-                "--headless",
                 "--remote-allow-origins=*"
         ));
+        if(HEADLESS_CONF.equals("true")){
+            chromeOptions.addArguments("--headless");
+        }
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver(chromeOptions);
         return webDriver;

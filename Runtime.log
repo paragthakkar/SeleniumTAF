@@ -1,0 +1,7 @@
+2024-03-01 11:34:34 INFO  Hooks:28 - Before Hook Triggered
+2024-03-01 11:34:34 INFO  ClickableEvents:51 - Waiting for the element to be visible: Search
+2024-03-01 11:34:34 INFO  ClickableEvents:45 - Waiting for the element to be clickable: Search
+2024-03-01 11:34:35 INFO  ClickableEvents:62 - Clicking element: Search
+2024-03-01 11:34:35 INFO  ClickableEvents:51 - Waiting for the element to be visible: Search
+2024-03-01 11:34:35 INFO  ClickableEvents:57 - Sending text to element: Search
+2024-03-01 11:34:38 INFO  Hooks:40 - After Hook Triggered
